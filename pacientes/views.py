@@ -82,11 +82,11 @@ def consulta_publica(request, id):
     consulta = Consultas.objects.get(id=id)
     if not consulta.paciente.pagamento_em_dia:
         raise Http404()
-    '''view = Visualizacoes(
+    view = Visualizacoes(
     consulta=consulta,
     ip=request.META['REMOTE_ADDR']
     )
-    view.save()'''
+    view.save()
     return render(request, 'consulta_publica.html', {'consulta': consulta})
 
 @property
